@@ -26,6 +26,7 @@ command! -bang -nargs=* Ag
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
+
 " Exit to normal mode from terminal
 tnoremap <Esc> <C-\><C-n>
 
@@ -37,6 +38,9 @@ set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone
 " select completion variant by pressing Enter
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+set number
+set relativenumber
 
 " Allow per-project nvimrc files
 set exrc
