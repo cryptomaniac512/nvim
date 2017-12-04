@@ -7,6 +7,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
+Plug 'jreybert/vimagit'
 
 call plug#end()
 
