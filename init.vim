@@ -32,5 +32,11 @@ tnoremap <Esc> <C-\><C-n>
 " use system clipboard
 set clipboard=unnamed
 
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+set completeopt=longest,menuone
+" select completion variant by pressing Enter
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 " Allow per-project nvimrc files
 set exrc
