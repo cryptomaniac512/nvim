@@ -1,6 +1,5 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'Shougo/echodoc.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -9,6 +8,9 @@ Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug 'jreybert/vimagit'
 Plug 'tpope/vim-commentary'
+
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
 
 call plug#end()
 
@@ -45,6 +47,13 @@ set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone,preview
 " select completion variant by pressing Enter
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+let g:racer_experimental_completer = 1
+augroup rust
+	au FileType rust nmap <leader>d <Plug>(rust-def)
+	au FileType rust nmap <leader>D <Plug>(rust-def-vertical)
+	au FileType rust nmap <leader>k <Plug>(rust-doc)
+augroup END
 
 set foldmethod=indent
 " set foldlevel=1
