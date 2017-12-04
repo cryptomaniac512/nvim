@@ -2,6 +2,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'Shougo/echodoc.vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -15,6 +17,13 @@ augroup nord
 augroup END
 let g:nord_comment_brightness = 10
 colorscheme nord
+
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(
+  \   '',
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
 " Exit to normal mode from terminal
 tnoremap <Esc> <C-\><C-n>
