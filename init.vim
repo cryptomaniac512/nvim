@@ -8,6 +8,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug 'jreybert/vimagit'
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
@@ -30,6 +31,8 @@ command! -bang -nargs=* Ag
   \   <bang>0)
 
 let g:ale_sign_column_always = 1
+
+noremap <leader>c :Commentary<CR>
 
 " Exit to normal mode from terminal
 tnoremap <Esc> <C-\><C-n>
