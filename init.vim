@@ -28,5 +28,8 @@ command! -bang -nargs=* Ag
 " Exit to normal mode from terminal
 tnoremap <Esc> <C-\><C-n>
 
+" use system clipboard
+set clipboard=unnamed
+
 " Allow per-project nvimrc files
 set exrc
