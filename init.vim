@@ -42,7 +42,7 @@ set clipboard=unnamed
 
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
-set completeopt=longest,menuone
+set completeopt=longest,menuone,preview
 " select completion variant by pressing Enter
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
