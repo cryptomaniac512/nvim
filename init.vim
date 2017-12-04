@@ -6,6 +6,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
+Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -27,6 +28,7 @@ command! -bang -nargs=* Ag
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
+let g:ale_sign_column_always = 1
 
 " Exit to normal mode from terminal
 tnoremap <Esc> <C-\><C-n>
