@@ -46,6 +46,9 @@ set completeopt=longest,menuone
 " select completion variant by pressing Enter
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
+set foldmethod=indent
+" set foldlevel=1
+
 set number
 set relativenumber
 
