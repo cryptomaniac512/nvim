@@ -9,9 +9,6 @@ Plug 'w0rp/ale'
 Plug 'jreybert/vimagit'
 Plug 'tpope/vim-commentary'
 
-Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
-
 call plug#end()
 
 let g:python_host_prog = '/home/cryptomaniac/Devel/Envs/py2_neovim_host/bin/python'
@@ -47,13 +44,6 @@ set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone,preview
 " select completion variant by pressing Enter
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-let g:racer_experimental_completer = 1
-augroup rust
-	au FileType rust nmap <leader>d <Plug>(rust-def)
-	au FileType rust nmap <leader>D <Plug>(rust-def-vertical)
-	au FileType rust nmap <leader>k <Plug>(rust-doc)
-augroup END
 
 set foldmethod=indent
 " set foldlevel=1
