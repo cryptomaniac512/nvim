@@ -1,18 +1,15 @@
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 
 Plug 'arcticicestudio/nord-vim'
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
-Plug 'jreybert/vimagit'
 Plug 'tpope/vim-commentary'
 
 call plug#end()
-
-let g:python_host_prog = '/home/cryptomaniac/Devel/Envs/py2_neovim_host/bin/python'
-let g:python3_host_prog = '/home/cryptomaniac/Devel/Envs/py3_neovim_host/bin/python'
 
 set hidden
 
@@ -33,8 +30,6 @@ let g:ale_sign_column_always = 1
 
 noremap <leader>c :Commentary<CR>
 
-" Exit to normal mode from terminal
-tnoremap <Esc> <C-\><C-n>
 
 " use system clipboard
 set clipboard=unnamed
