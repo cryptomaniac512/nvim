@@ -6,6 +6,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 " General configuration options
@@ -18,6 +19,10 @@ set autoread
 set hidden
 
 " UI options
+set termguicolors
+colorscheme nord
+let g:nord_italic=1
+let g:nord_comment_brightness=5
 set laststatus=2  " always display the statusbar
 set ruler  " always show cursor position
 set wildmenu  " display command line's tab complete options as a menu
