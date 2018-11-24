@@ -1,3 +1,5 @@
 .netrwhist
+autoload/
+plugged/
 swp/
 undo/
