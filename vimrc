@@ -8,6 +8,7 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'arcticicestudio/nord-vim'
 Plug 'w0rp/ale'
+Plug 'jreybert/vimagit'
 call plug#end()
 
 " General configuration options
