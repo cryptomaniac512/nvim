@@ -83,6 +83,8 @@ syntax enable  " enable syntax highlighting
 " Miscellaneous options
 set nrformats-=octal  " interpret octal as decimal when incrementing nubers
 set exrc  " enable project specific vimrc
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 
 " Mappings
 nnoremap n nzz
