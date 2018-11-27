@@ -12,7 +12,7 @@ call plug#end()
 " General configuration options
 set nocompatible
 set backspace=indent,eol,start  " allow backspacing over
-set history=1000
+set history=10000
 set showcmd  " show incomplete commands at the bottom
 set showmode
 set autoread
