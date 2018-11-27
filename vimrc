@@ -11,6 +11,8 @@ Plug 'w0rp/ale'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'jreybert/vimagit'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " General configuration options
