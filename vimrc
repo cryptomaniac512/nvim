@@ -7,6 +7,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'arcticicestudio/nord-vim'
+Plug 'w0rp/ale'
 call plug#end()
 
 " General configuration options
@@ -17,6 +18,15 @@ set showcmd  " show incomplete commands at the bottom
 set showmode
 set autoread
 set hidden
+"
+" Ale setup
+let g:ale_linters = {
+            \'rust': ['cargo', 'rustfmt'],
+            \'python': ['flake8', 'pylint'],
+            \}
+let g:ale_echo_msg_format='%code: %%s [%linter%]'
+let g:ale_sign_column_always=1
+let g:ale_rust_cargo_use_clippy=1
 
 " UI options
 set termguicolors
