@@ -55,6 +55,9 @@ if executable('pyls')
     autocmd FileType python setlocal omnifunc=lsp#complete
 endif
 
+" FZF setup
+let g:fzf_layout = { 'window': 'botright 20split' }
+
 " UI options
 set termguicolors
 colorscheme nord
