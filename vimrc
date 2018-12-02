@@ -13,6 +13,8 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'jreybert/vimagit'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
+Plug '/usr/bin/fzf'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " General configuration options
