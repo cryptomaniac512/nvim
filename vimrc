@@ -94,7 +94,7 @@ set tabstop=4  " show existing tab with 4 spaces width
 set softtabstop=4  " indent by 4 spaces when hitting tab
 set shiftwidth=4  " when indenting with > or autoindenting, use 2 spaces width
 set expandtab  " on pressing Tab, insert spaces
-set nowrap  " don't wrap lines
+set wrap  " wrap lines
 
 " Search options
 set incsearch  " find the next match as we type the search
