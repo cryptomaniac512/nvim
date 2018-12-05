@@ -7,14 +7,24 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'arcticicestudio/nord-vim'
+
 Plug 'w0rp/ale'
+
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
+
 Plug 'jreybert/vimagit'
+
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
+
 Plug '/usr/bin/fzf'
 Plug 'junegunn/fzf.vim'
+
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 call plug#end()
 
 " General configuration options
