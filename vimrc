@@ -42,6 +42,10 @@ set hidden
 let g:ale_linters = {
             \'rust': ['cargo', 'rustfmt'],
             \'python': ['flake8', 'pylint'],
+            \'typescript': ['tslint', 'typecheck', 'tsserver'],
+            \'typescript.tsx': ['tslint', 'typecheck', 'tsserver'],
+            \'javascript': ['eslint'],
+            \'javascript.jsx': ['eslint'],
             \}
 let g:ale_echo_msg_format='%code: %%s [%linter%]'
 let g:ale_sign_column_always=1
