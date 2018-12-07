@@ -23,10 +23,10 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'cespare/vim-toml'
 
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 call plug#end()
 
 " General configuration options
