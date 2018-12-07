@@ -21,6 +21,8 @@ Plug 'tpope/vim-surround'
 Plug '/usr/bin/fzf'
 Plug 'junegunn/fzf.vim'
 
+Plug 'cespare/vim-toml'
+
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
