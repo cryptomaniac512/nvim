@@ -82,7 +82,33 @@ if executable('typescript-language-server')
 endif
 
 " FZF setup
-let g:fzf_layout = { 'window': 'botright 20split' }
+let g:fzf_colors = {
+    \ 'fg':      ['fg', 'Normal'],
+    \ 'bg':      ['bg', 'Normal'],
+    \ 'hl':      ['fg', 'Comment'],
+    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+    \ 'hl+':     ['fg', 'Statement'],
+    \ 'info':    ['fg', 'PreProc'],
+    \ 'border':  ['fg', 'Ignore'],
+    \ 'prompt':  ['fg', 'Conditional'],
+    \ 'pointer': ['fg', 'Exception'],
+    \ 'marker':  ['fg', 'Keyword'],
+    \ 'spinner': ['fg', 'Label'],
+    \ 'header':  ['fg', 'Comment'],
+    \ }
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%', '?'),
+  \   <bang>0)
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(
+  \ <q-args>,
+  \ <bang>0 ? fzf#vim#with_preview('up:60%')
+  \         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \ <bang>0)
 
 " Vim-jsx setup
 let g:jsx_ext_required=1
@@ -148,6 +174,12 @@ cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 let mapleader = "\'"
 nnoremap <leader>r :setlocal relativenumber!<cr>
+
+nnoremap <leader>s :Rg<cr>
+nnoremap <leader>S viwy:Rg<cr><c-w>""
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>F viwy:Files<cr><c-w>""
+nnoremap <leader>b :Buffers<cr>
 
 inoremap <c-b> <left>
 inoremap <c-f> <right>
