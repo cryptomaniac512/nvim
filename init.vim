@@ -113,11 +113,11 @@ set foldmethod=syntax  " type of folding
 
 " Swap, backup and undo
 set swapfile
-set directory=$HOME/.vim/swp//
+set directory=$HOME/.local/share/nvim/swap//
 set nobackup
 set nowb
 set undofile
-set undodir=$HOME/.vim/undo/
+set undodir=$HOME/.local/share/nvim/undo
 
 " Indentation options
 set autoindent
