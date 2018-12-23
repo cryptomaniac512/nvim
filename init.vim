@@ -18,6 +18,8 @@ Plug 'jreybert/vimagit'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 
+Plug 'tpope/vim-commentary'
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -83,6 +85,10 @@ endif
 
 " Auto-pairs setup
 let g:AutoPairsShortcutBackInsert = ''
+
+" Commentary setup
+nnoremap <silent> <c-\> :Commentary<cr>j
+vnoremap <silent> <c-\> :Commentary<cr>j
 
 " FZF setup
 let g:fzf_colors = {
