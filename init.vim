@@ -154,7 +154,3 @@ cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 let mapleader = "\'"
 nnoremap <leader>r :setlocal relativenumber!<cr>
 
-" Functions
-augroup toggle_relative_number
-autocmd InsertEnter * :setlocal norelativenumber
-autocmd InsertLeave * :setlocal relativenumber
