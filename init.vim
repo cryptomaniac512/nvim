@@ -30,12 +30,7 @@ Plug 'mxw/vim-jsx'
 call plug#end()
 
 " General configuration options
-set nocompatible
-set backspace=indent,eol,start  " allow backspacing over
-set history=10000
-set showcmd  " show incomplete commands at the bottom
 set showmode
-set autoread
 set hidden
 "
 " Ale setup
@@ -95,9 +90,6 @@ set termguicolors
 colorscheme nord
 let g:nord_italic=1
 let g:nord_comment_brightness=5
-set laststatus=2  " always display the statusbar
-set ruler  " always show cursor position
-set wildmenu  " display command line's tab complete options as a menu
 set number  " show line numbers on the sidebar
 set relativenumber
 set noerrorbells
@@ -113,14 +105,12 @@ set foldmethod=syntax  " type of folding
 
 " Swap, backup and undo
 set swapfile
-set directory=$HOME/.local/share/nvim/swap//
 set nobackup
 set nowb
 set undofile
 set undodir=$HOME/.local/share/nvim/undo
 
 " Indentation options
-set autoindent
 filetype plugin indent on  " smart auto indentation
 set tabstop=4  " show existing tab with 4 spaces width
 set softtabstop=4  " indent by 4 spaces when hitting tab
@@ -129,20 +119,16 @@ set expandtab  " on pressing Tab, insert spaces
 set wrap  " wrap lines
 
 " Search options
-set incsearch  " find the next match as we type the search
-set hlsearch
 set ignorecase
 set smartcase
 
 " Text rendering options
-set encoding=utf-8
 set linebreak  " wrap lines at convenient points, avoid wrapping a line in the middle of a word
 set scrolloff=3  " the number of screen lines to keep above and below the cursor
 set sidescrolloff=5  " the number of screen columns to keep to the left and and right of the cursor
 syntax enable  " enable syntax highlighting
 
 " Miscellaneous options
-set nrformats-=octal  " interpret octal as decimal when incrementing nubers
 set exrc  " enable project specific vimrc
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
