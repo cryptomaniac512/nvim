@@ -147,3 +147,6 @@ cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 let mapleader = "\'"
 nnoremap <leader>r :setlocal relativenumber!<cr>
 
+
+autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescript.jsx
+autocmd BufRead,BufNewFile *.pcss setlocal filetype=scss
