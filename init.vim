@@ -28,6 +28,8 @@ Plug 'cespare/vim-toml'
 Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+
+Plug 'mattn/emmet-vim'
 call plug#end()
 
 " General configuration options
@@ -130,6 +132,9 @@ command! -bang -nargs=? -complete=dir Files
 
 " Vim-jsx setup
 let g:jsx_ext_required=1
+
+" Emmet setup
+let g:user_emmet_leader_key=','
 
 " UI options
 set termguicolors
