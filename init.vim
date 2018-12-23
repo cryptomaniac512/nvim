@@ -24,7 +24,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'cespare/vim-toml'
 
 Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 call plug#end()
@@ -71,7 +70,7 @@ if executable('typescript-language-server')
         \ 'name': 'typescript-language-server',
         \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
         \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-        \ 'whitelist': ['typescript', 'typescript.tsx'],
+        \ 'whitelist': ['typescript', 'typescript.jsx'],
         \ })
     au User lsp_setup call lsp#register_server({
         \ 'name': 'javascript-language-server',
@@ -79,11 +78,14 @@ if executable('typescript-language-server')
         \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'jsconfig.json'))},
         \ 'whitelist': ['javascript', 'javascript.jsx'],
         \ })
-    autocmd FileType typescript,typescript.tsx,javascript,javascript.jsx setlocal omnifunc=lsp#complete
+    autocmd FileType typescript,typescript.jsx,javascript,javascript.jsx setlocal omnifunc=lsp#complete
 endif
 
 " FZF setup
 let g:fzf_layout = { 'window': 'botright 20split' }
+
+" Vim-jsx setup
+let g:jsx_ext_required=1
 
 " UI options
 set termguicolors
