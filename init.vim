@@ -18,7 +18,7 @@ Plug 'jreybert/vimagit'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 
-Plug '/usr/bin/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'cespare/vim-toml'
