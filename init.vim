@@ -81,6 +81,9 @@ if executable('typescript-language-server')
     autocmd FileType typescript,typescript.jsx,javascript,javascript.jsx setlocal omnifunc=lsp#complete
 endif
 
+" Auto-pairs setup
+let g:AutoPairsShortcutBackInsert = ''
+
 " FZF setup
 let g:fzf_colors = {
     \ 'fg':      ['fg', 'Normal'],
