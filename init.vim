@@ -56,6 +56,9 @@ if executable('rls')
         \ 'whitelist': ['rust'],
         \ })
     autocmd FileType rust setlocal omnifunc=lsp#complete
+    autocmd FileType rust nnoremap <silent> <c-]> :LspDefinition<cr>
+    autocmd FileType rust nnoremap <silent> <leader>r :LspReferences<cr>
+    autocmd FileType rust nnoremap <silent> K :LspHover<cr>
 endif
 
 if executable('pyls')
@@ -65,6 +68,9 @@ if executable('pyls')
         \ 'whitelist': ['python'],
         \ })
     autocmd FileType python setlocal omnifunc=lsp#complete
+    autocmd FileType python nnoremap <silent> <c-]> :LspDefinition<cr>
+    autocmd FileType python nnoremap <silent> <leader>r :LspReferences<cr>
+    autocmd FileType python nnoremap <silent> K :LspHover<cr>
 endif
 
 if executable('typescript-language-server')
@@ -81,6 +87,9 @@ if executable('typescript-language-server')
         \ 'whitelist': ['javascript', 'javascript.jsx'],
         \ })
     autocmd FileType typescript,typescript.jsx,javascript,javascript.jsx setlocal omnifunc=lsp#complete
+    autocmd FileType typescript,typescript.jsx,javascript,javascript.jsx nnoremap <buffer> <silent> <c-]> :LspDefinition<cr>
+    autocmd FileType typescript,typescript.jsx,javascript,javascript.jsx nnoremap <silent> <leader>r :LspReferences<cr>
+    autocmd FileType typescript,typescript.jsx,javascript,javascript.jsx nnoremap <silent> K :LspHover<cr>
 endif
 
 " Auto-pairs setup
