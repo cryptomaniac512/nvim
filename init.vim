@@ -212,6 +212,7 @@ inoremap <C-a> <Home>
 inoremap <C-e> <End>
 inoremap <m-b> <c-left>
 inoremap <m-f> <c-right>
+inoremap <m-BS> <c-w>
 
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
@@ -221,6 +222,7 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <m-b> <c-left>
 cnoremap <m-f> <c-right>
+cnoremap <m-BS> <c-w>
 
 
 autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescript.jsx
