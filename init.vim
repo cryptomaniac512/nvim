@@ -29,6 +29,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
+Plug 'ap/vim-css-color'
 
 Plug 'mattn/emmet-vim'
 
