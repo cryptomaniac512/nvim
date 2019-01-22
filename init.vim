@@ -29,6 +29,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
+
 Plug 'mattn/emmet-vim'
 
 Plug 'mtth/scratch.vim'
@@ -40,22 +41,26 @@ set hidden
 "
 " Ale setup
 let g:ale_linters = {
-            \'rust': ['cargo', 'rustfmt'],
+            \'rust': ['cargo', 'rls'],
             \'python': ['flake8', 'pylint'],
             \'typescript': ['tslint', 'typecheck', 'tsserver'],
             \'typescript.tsx': ['tslint', 'typecheck', 'tsserver'],
             \'javascript': ['eslint'],
             \'javascript.jsx': ['eslint'],
             \}
+let g:ale_fixers = {
+            \'rust': ['rustfmt'],
+            \}
 let g:ale_echo_msg_format='%code: %%s [%linter%]'
 let g:ale_sign_column_always=1
 let g:ale_rust_cargo_use_clippy=1
+let g:ale_rust_rls_toolchain=''
 
 " LSP setup
 if executable('rls')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'cmd': {server_info->['rls']},
         \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'Cargo.toml'))},
         \ 'whitelist': ['rust'],
         \ })
