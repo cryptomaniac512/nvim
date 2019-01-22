@@ -214,11 +214,22 @@ cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 let mapleader = "\'"
 nnoremap <leader>r :setlocal relativenumber!<cr>
 
-nnoremap <leader>s :Rg<cr>
-nnoremap <leader>S viwy:Rg<cr><c-w>""
-nnoremap <leader>f :Files<cr>
-nnoremap <leader>F viwy:Files<cr><c-w>""
-nnoremap <leader>b :Buffers<cr>
+" project context (starts with <c-c>p)
+nnoremap <c-c>ps :Rg<cr>
+nnoremap <c-c>pf :Files<cr>
+vmap <c-c>ps y:Rg<cr><c-r>"
+vmap <c-c>pf y:Files<cr><c-r>"
+
+" current buffer context (starts with <c-c>c or <leader>)
+nnoremap <c-c>cf :Files %:h<cr>
+nnoremap <c-c>ce :e %:h<cr>
+nnoremap <leader>f :Files %:h<cr>
+nnoremap <leader>e :e %:h<cr>
+
+" without context (starts with <c-x> and other)
+nnoremap <c-x>b :Buffers<cr>
+nnoremap <c-x>s :Scratch<cr>
+vnoremap <c-x>s :ScratchSelection<cr>
 
 inoremap <c-b> <left>
 inoremap <c-f> <right>
