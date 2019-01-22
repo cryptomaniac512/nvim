@@ -240,6 +240,8 @@ cnoremap <m-b> <c-left>
 cnoremap <m-f> <c-right>
 cnoremap <m-BS> <c-w>
 
+tnoremap <expr> <c-r> '<c-\><c-n>"'.nr2char(getchar()).'pi'
+
 
 autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescript.jsx
 autocmd BufRead,BufNewFile *.pcss setlocal filetype=scss
