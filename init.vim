@@ -24,6 +24,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'cespare/vim-toml'
+Plug 'editorconfig/editorconfig-vim'
 
 Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
