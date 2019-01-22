@@ -57,6 +57,8 @@ let g:ale_rust_cargo_use_clippy=1
 let g:ale_rust_rls_toolchain=''
 
 " LSP setup
+let g:lsp_diagnostics_enabled=0
+
 if executable('rls')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'rls',
