@@ -30,6 +30,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
 Plug 'mattn/emmet-vim'
+
+Plug 'mtth/scratch.vim'
 call plug#end()
 
 " General configuration options
@@ -135,6 +137,13 @@ let g:jsx_ext_required=1
 
 " Emmet setup
 let g:user_emmet_leader_key=','
+
+" Scratch setup
+let g:scratch_insert_autohide=0
+let g:scratch_no_mappings=1
+
+" netrw setup
+let g:netrw_localrmdir='rm -r'
 
 " UI options
 set termguicolors
