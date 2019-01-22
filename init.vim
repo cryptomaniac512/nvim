@@ -251,7 +251,9 @@ cnoremap <m-b> <c-left>
 cnoremap <m-f> <c-right>
 cnoremap <m-BS> <c-w>
 
+" awkward commands fixes
 tnoremap <expr> <c-r> '<c-\><c-n>"'.nr2char(getchar()).'pi'
+cnoremap W w
 
 
 autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescript.jsx
