@@ -228,6 +228,7 @@ nnoremap <c-c>cf :Files %:h<cr>
 nnoremap <c-c>ce :e %:h<cr>
 nnoremap <leader>f :Files %:h<cr>
 nnoremap <leader>e :e %:h<cr>
+nnoremap <silent> <leader>i :ALEFix<cr>
 
 " without context (starts with <c-x> and other)
 nnoremap <c-x>b :Buffers<cr>
