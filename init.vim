@@ -52,6 +52,7 @@ let g:ale_linters = {
             \}
 let g:ale_fixers = {
             \'rust': ['rustfmt'],
+            \'python': ['isort'],
             \}
 let g:ale_echo_msg_format='%code: %%s [%linter%]'
 let g:ale_sign_column_always=1
