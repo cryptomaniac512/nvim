@@ -1,11 +1,11 @@
 " Install vim-plug automatically
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 Plug 'arcticicestudio/nord-vim'
 
 Plug 'w0rp/ale'
@@ -20,17 +20,18 @@ Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-commentary'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug '/usr/bin/fzf'
 Plug 'junegunn/fzf.vim'
 
-Plug 'cespare/vim-toml'
 Plug 'editorconfig/editorconfig-vim'
 
+Plug 'cespare/vim-toml'
 Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
 Plug 'ap/vim-css-color'
+Plug 'Vimjas/vim-python-pep8-indent'
 
 Plug 'mattn/emmet-vim'
 
@@ -38,9 +39,14 @@ Plug 'mtth/scratch.vim'
 call plug#end()
 
 " General configuration options
+set nocompatible
+set backspace=indent,eol,start  " allow backspacing over
+set history=10000
+set showcmd  " show incomplete commands at the bottom
 set showmode
+set autoread
 set hidden
-"
+
 " Ale setup
 let g:ale_linters = {
             \'rust': ['cargo', 'rls'],
@@ -52,7 +58,7 @@ let g:ale_linters = {
             \}
 let g:ale_fixers = {
             \'rust': ['rustfmt'],
-            \'python': ['isort'],
+            \'python': ['isort', 'yapf', 'black'],
             \}
 let g:ale_echo_msg_format='%code: %%s [%linter%]'
 let g:ale_sign_column_always=1
@@ -114,6 +120,7 @@ nnoremap <silent> <c-\> :Commentary<cr>j
 vnoremap <silent> <c-\> :Commentary<cr>j
 
 " FZF setup
+let g:fzf_layout = { 'window': 'botright 20split' }
 let g:fzf_colors = {
     \ 'fg':      ['fg', 'Normal'],
     \ 'bg':      ['bg', 'Normal'],
@@ -158,8 +165,30 @@ let g:netrw_localrmdir='rm -r'
 " UI options
 set termguicolors
 colorscheme nord
+" should be removed after https://github.com/arcticicestudio/nord-vim/pull/126
+let g:terminal_ansi_colors = [
+            \ "#3B4252",
+            \ "#BF616A",
+            \ "#A3BE8C",
+            \ "#EBCB8B",
+            \ "#81A1C1",
+            \ "#B48EAD",
+            \ "#88C0D0",
+            \ "#E5E9F0",
+            \ "#4C566A",
+            \ "#BF616A",
+            \ "#A3BE8C",
+            \ "#EBCB8B",
+            \ "#81A1C1",
+            \ "#B48EAD",
+            \ "#8FBCBB",
+            \ "#ECEFF4",
+            \ ]
 let g:nord_italic=1
 let g:nord_comment_brightness=5
+set laststatus=2  " always display the statusbar
+set ruler  " always show cursor position
+set wildmenu  " display command line's tab complete options as a menu
 set number  " show line numbers on the sidebar
 set relativenumber
 set noerrorbells
@@ -175,10 +204,11 @@ set foldmethod=syntax  " type of folding
 
 " Swap, backup and undo
 set swapfile
+set directory=$HOME/.vim/swp//
 set nobackup
 set nowb
 set undofile
-set undodir=$HOME/.local/share/nvim/undo
+set undodir=$HOME/.vim/undo/
 
 " Indentation options
 filetype plugin indent on  " smart auto indentation
@@ -187,18 +217,24 @@ set softtabstop=4  " indent by 4 spaces when hitting tab
 set shiftwidth=4  " when indenting with > or autoindenting, use 2 spaces width
 set expandtab  " on pressing Tab, insert spaces
 set wrap  " wrap lines
+set autoindent
+set smartindent
 
 " Search options
+set incsearch  " find the next match as we type the search
+set hlsearch
 set ignorecase
 set smartcase
 
 " Text rendering options
+set encoding=utf-8
 set linebreak  " wrap lines at convenient points, avoid wrapping a line in the middle of a word
 set scrolloff=3  " the number of screen lines to keep above and below the cursor
 set sidescrolloff=5  " the number of screen columns to keep to the left and and right of the cursor
 syntax enable  " enable syntax highlighting
 
 " Miscellaneous options
+set nrformats-=octal  " interpret octal as decimal when incrementing nubers
 set exrc  " enable project specific vimrc
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
@@ -256,7 +292,7 @@ cnoremap <m-f> <c-right>
 cnoremap <m-BS> <c-w>
 
 " awkward commands fixes
-tnoremap <expr> <c-r> '<c-\><c-n>"'.nr2char(getchar()).'pi'
+tnoremap <c-r> <c-w>"
 cnoremap W w
 
 
