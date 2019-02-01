@@ -277,9 +277,10 @@ inoremap <c-n> <down>
 inoremap <c-p> <up>
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
-inoremap <m-b> <c-left>
-inoremap <m-f> <c-right>
-inoremap <m-BS> <c-w>
+" like Meta-<something>
+inoremap <esc>b <c-left>
+inoremap <esc>f <c-right>
+inoremap <esc><BS> <c-w>
 
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
@@ -287,9 +288,10 @@ cnoremap <C-b> <Left>
 cnoremap <C-f> <Right>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
-cnoremap <m-b> <c-left>
-cnoremap <m-f> <c-right>
-cnoremap <m-BS> <c-w>
+" like Meta-<something>
+cnoremap <esc>b <c-left>
+cnoremap <esc>f <c-right>
+cnoremap <esc><BS> <c-w>
 
 " awkward commands fixes
 tnoremap <c-r> <c-w>"
