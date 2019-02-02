@@ -257,8 +257,6 @@ vmap <c-c>ps y:Rg<cr><c-r>"
 vmap <c-c>pf y:Files<cr><c-r>"
 
 " current buffer context (starts with <c-c>c or <leader>)
-nnoremap <c-c>cf :Files %:h<cr>
-nnoremap <c-c>ce :e %:h<cr>
 nnoremap <leader>f :Files %:h<cr>
 nnoremap <leader>e :e %:h<cr>
 nnoremap <silent> <leader>i :ALEFix<cr>
