@@ -152,9 +152,6 @@ command! -bang -nargs=? -complete=dir Files
 " Vim-jsx setup
 let g:jsx_ext_required=1
 
-" Emmet setup
-let g:user_emmet_leader_key=','
-
 " Scratch setup
 let g:scratch_insert_autohide=0
 let g:scratch_no_mappings=1
