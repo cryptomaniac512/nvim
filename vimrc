@@ -6,7 +6,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'arcticicestudio/nord-vim'
+Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }
 
 Plug 'w0rp/ale'
 
@@ -162,25 +162,6 @@ let g:netrw_localrmdir='rm -r'
 " UI options
 set termguicolors
 colorscheme nord
-" should be removed after https://github.com/arcticicestudio/nord-vim/pull/126
-let g:terminal_ansi_colors = [
-            \ "#3B4252",
-            \ "#BF616A",
-            \ "#A3BE8C",
-            \ "#EBCB8B",
-            \ "#81A1C1",
-            \ "#B48EAD",
-            \ "#88C0D0",
-            \ "#E5E9F0",
-            \ "#4C566A",
-            \ "#BF616A",
-            \ "#A3BE8C",
-            \ "#EBCB8B",
-            \ "#81A1C1",
-            \ "#B48EAD",
-            \ "#8FBCBB",
-            \ "#ECEFF4",
-            \ ]
 let g:nord_italic=1
 let g:nord_comment_brightness=5
 set laststatus=2  " always display the statusbar
