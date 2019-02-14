@@ -216,6 +216,7 @@ set nrformats-=octal  " interpret octal as decimal when incrementing nubers
 set exrc  " enable project specific vimrc
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+set completeopt-=preview
 
 " Mappings
 nnoremap n nzz
