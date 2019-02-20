@@ -86,6 +86,15 @@ if executable('pyls')
         \ 'name': 'pyls',
         \ 'cmd': {server_info->['pyls']},
         \ 'whitelist': ['python'],
+        \ 'workspace_config': {'pyls': {'plugins': {
+            \'jedi_completion': {'include_params': v:false},
+            \'jedi_definition': {'follow_imports': v:true},
+            \'mccabe': {'enabled': v:false},
+            \'pycodestyle': {'enabled': v:false},
+            \'pydocstyle': {'enabled': v:false},
+            \'pyflakes': {'enabled': v:false},
+            \'yapf': {'enabled': v:false},
+        \}}},
         \ })
     autocmd FileType python setlocal omnifunc=lsp#complete
     autocmd FileType python nnoremap <silent> <c-]> :LspDefinition<cr>
