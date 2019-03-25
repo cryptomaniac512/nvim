@@ -172,7 +172,6 @@ let g:netrw_localrmdir='rm -r'
 set termguicolors
 colorscheme nord
 let g:nord_italic=1
-let g:nord_comment_brightness=5
 set laststatus=2  " always display the statusbar
 set ruler  " always show cursor position
 set wildmenu  " display command line's tab complete options as a menu
