@@ -30,7 +30,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
-Plug 'ap/vim-css-color'
+Plug 'RRethy/vim-hexokinase'
 Plug 'Vimjas/vim-python-pep8-indent'
 
 Plug 'mattn/emmet-vim'
@@ -160,6 +160,10 @@ command! -bang -nargs=? -complete=dir Files
 
 " Vim-jsx setup
 let g:jsx_ext_required=1
+
+" vim-hexokinase
+let g:Hexokinase_highlighters = ['sign_column']
+let g:Hexokinase_ftAutoload = ['*']
 
 " Scratch setup
 let g:scratch_insert_autohide=0
