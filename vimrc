@@ -171,6 +171,7 @@ let g:scratch_no_mappings=1
 
 " netrw setup
 let g:netrw_localrmdir='rm -r'
+let g:netrw_banner=0
 
 " UI options
 set termguicolors
