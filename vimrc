@@ -203,9 +203,9 @@ set undodir=$HOME/.vim/undo/
 
 " Indentation options
 filetype plugin indent on  " smart auto indentation
-set tabstop=4  " show existing tab with 4 spaces width
-set softtabstop=4  " indent by 4 spaces when hitting tab
-set shiftwidth=4  " when indenting with > or autoindenting, use 2 spaces width
+set tabstop=2  " show existing tab with 2 spaces width
+set softtabstop=2  " indent by 2 spaces when hitting tab
+set shiftwidth=2  " when indenting with > or autoindenting, use 2 spaces width
 set expandtab  " on pressing Tab, insert spaces
 set wrap  " wrap lines
 set autoindent
