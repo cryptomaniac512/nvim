@@ -9,9 +9,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }
 
 Plug 'w0rp/ale'
-
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
+Plug 'natebosch/vim-lsc'
 
 Plug 'jreybert/vimagit'
 
@@ -65,61 +63,23 @@ let g:ale_sign_column_always=1
 let g:ale_rust_cargo_use_clippy=1
 let g:ale_rust_rls_toolchain=''
 
-" LSP setup
-let g:lsp_diagnostics_enabled=0
-
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rls']},
-        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'Cargo.toml'))},
-        \ 'whitelist': ['rust'],
-        \ })
-    autocmd FileType rust setlocal omnifunc=lsp#complete
-    autocmd FileType rust nnoremap <buffer> <silent> <c-]> :LspDefinition<cr>
-    autocmd FileType rust nnoremap <buffer> <silent> <leader>r :LspReferences<cr>
-    autocmd FileType rust nnoremap <buffer> <silent> K :LspHover<cr>
-endif
-
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ 'workspace_config': {'pyls': {'plugins': {
-            \'jedi_completion': {'include_params': v:false},
-            \'jedi_definition': {'follow_imports': v:true},
-            \'mccabe': {'enabled': v:false},
-            \'pycodestyle': {'enabled': v:false},
-            \'pydocstyle': {'enabled': v:false},
-            \'pyflakes': {'enabled': v:false},
-            \'yapf': {'enabled': v:false},
-        \}}},
-        \ })
-    autocmd FileType python setlocal omnifunc=lsp#complete
-    autocmd FileType python nnoremap <buffer> <silent> <c-]> :LspDefinition<cr>
-    autocmd FileType python nnoremap <buffer> <silent> <leader>r :LspReferences<cr>
-    autocmd FileType python nnoremap <buffer> <silent> K :LspHover<cr>
-endif
-
-if executable('typescript-language-server')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'typescript-language-server',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-        \ 'whitelist': ['typescript', 'typescript.jsx'],
-        \ })
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'javascript-language-server',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'jsconfig.json'))},
-        \ 'whitelist': ['javascript', 'javascript.jsx'],
-        \ })
-    autocmd FileType typescript,typescript.jsx,javascript,javascript.jsx setlocal omnifunc=lsp#complete
-    autocmd FileType typescript,typescript.jsx,javascript,javascript.jsx nnoremap <buffer> <silent> <c-]> :LspDefinition<cr>
-    autocmd FileType typescript,typescript.jsx,javascript,javascript.jsx nnoremap <buffer> <silent> <leader>r :LspReferences<cr>
-    autocmd FileType typescript,typescript.jsx,javascript,javascript.jsx nnoremap <buffer> <silent> K :LspHover<cr>
-endif
+" lsc
+let g:lsc_server_commands = {
+      \ 'python': {
+      \   'command': 'pyls',
+      \   'message_hooks': {
+      \     'workspace/didChangeConfiguration': {'pyls': {'plugins': {'yapf': {'enabled': v:false}}}},
+      \  },
+      \ },
+      \ 'typescript.jsx': 'typescript-language-server --stdio',
+      \ 'typescript': 'typescript-language-server --stdio',
+      \ 'javascript.jsx': 'typescript-language-server --stdio',
+      \ 'javascript': 'typescript-language-server --stdio',
+      \ 'rust': 'rls',
+      \ }
+let g:lsc_auto_map = {'defaults': v:true, 'Completion': 'omnifunc'}
+let g:lsc_enable_autocomplete = v:false
+let g:lsc_enable_diagnostics = v:false
 
 " Auto-pairs setup
 let g:AutoPairsShortcutBackInsert = ''
