@@ -12,6 +12,7 @@ Plug 'w0rp/ale'
 Plug 'natebosch/vim-lsc'
 
 Plug 'jreybert/vimagit'
+Plug 'mbbill/undotree'
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
