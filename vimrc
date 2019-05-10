@@ -16,13 +16,13 @@ Plug 'mbbill/undotree'
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
-
 Plug 'tpope/vim-commentary'
 
 Plug '/usr/bin/fzf'
 Plug 'junegunn/fzf.vim'
 
 Plug 'editorconfig/editorconfig-vim'
+Plug 'Vimjas/vim-python-pep8-indent'
 
 Plug 'cespare/vim-toml'
 Plug 'leafgarland/typescript-vim'
@@ -30,8 +30,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
 Plug 'RRethy/vim-hexokinase'
-Plug 'Vimjas/vim-python-pep8-indent'
-
 Plug 'mattn/emmet-vim'
 call plug#end()
 
@@ -68,12 +66,7 @@ let g:ale_rust_rls_toolchain=''
 
 " lsc
 let g:lsc_server_commands = {
-      \ 'python': {
-      \   'command': 'pyls',
-      \   'message_hooks': {
-      \     'workspace/didChangeConfiguration': {'pyls': {'plugins': {'yapf': {'enabled': v:false}}}},
-      \  },
-      \ },
+      \ 'python': 'pyls',
       \ 'typescript.jsx': 'typescript-language-server --stdio',
       \ 'typescript': 'typescript-language-server --stdio',
       \ 'javascript.jsx': 'typescript-language-server --stdio',
