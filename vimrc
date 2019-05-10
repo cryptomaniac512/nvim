@@ -6,7 +6,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }
+Plug 'arcticicestudio/nord-vim'
 
 Plug 'w0rp/ale'
 Plug 'natebosch/vim-lsc'
