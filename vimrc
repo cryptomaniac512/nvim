@@ -32,8 +32,6 @@ Plug 'RRethy/vim-hexokinase'
 Plug 'Vimjas/vim-python-pep8-indent'
 
 Plug 'mattn/emmet-vim'
-
-Plug 'mtth/scratch.vim'
 call plug#end()
 
 " General configuration options
@@ -125,10 +123,6 @@ let g:jsx_ext_required=1
 let g:Hexokinase_highlighters = ['sign_column']
 let g:Hexokinase_ftAutoload = ['*']
 
-" Scratch setup
-let g:scratch_insert_autohide=0
-let g:scratch_no_mappings=1
-
 " netrw setup
 let g:netrw_localrmdir='rm -r'
 let g:netrw_banner=0
@@ -218,8 +212,6 @@ nnoremap <silent> <leader>i :ALEFix<cr>
 
 " without context (starts with <c-x> and other)
 nnoremap <c-x>b :Buffers<cr>
-nnoremap <c-x>s :Scratch<cr>
-vnoremap <c-x>s :ScratchSelection<cr>
 
 inoremap <c-b> <left>
 inoremap <c-f> <right>
