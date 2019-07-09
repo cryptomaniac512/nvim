@@ -56,6 +56,8 @@ let g:ale_fixers = {
             \'python': ['isort', 'yapf', 'black'],
             \'typescript': ['tslint', 'prettier'],
             \'typescript.tsx': ['tslint', 'prettier'],
+            \'javascript': ['eslint', 'prettier'],
+            \'javascript.tsx': ['eslint', 'prettier'],
             \'json': ['prettier'],
             \'html': ['prettier'],
             \}
