@@ -82,6 +82,11 @@ let g:lsc_enable_diagnostics = v:false
 
 " vim-test
 let test#strategy = "vimterminal"
+nnoremap <c-k>f :TestFile<cr>
+nnoremap <c-k>l :TestLast<cr>
+nnoremap <c-k>n :TestNearest<cr>
+nnoremap <c-k><c-k> :TestNearest<cr>
+nnoremap <c-k>s :TestSuite<cr>
 
 " Auto-pairs setup
 let g:AutoPairsShortcutBackInsert = ''
