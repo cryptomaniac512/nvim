@@ -10,6 +10,7 @@ Plug 'arcticicestudio/nord-vim'
 
 Plug 'w0rp/ale'
 Plug 'natebosch/vim-lsc'
+Plug 'janko/vim-test'
 
 Plug 'jreybert/vimagit'
 Plug 'mbbill/undotree'
@@ -78,6 +79,9 @@ let g:lsc_server_commands = {
 let g:lsc_auto_map = {'defaults': v:true, 'Completion': 'omnifunc'}
 let g:lsc_enable_autocomplete = v:false
 let g:lsc_enable_diagnostics = v:false
+
+" vim-test
+let test#strategy = "vimterminal"
 
 " Auto-pairs setup
 let g:AutoPairsShortcutBackInsert = ''
