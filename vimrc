@@ -41,7 +41,7 @@ set history=10000
 set showcmd  " show incomplete commands at the bottom
 set showmode
 set autoread
-set nohidden
+set hidden
 
 " Ale setup
 let g:ale_linters = {
