@@ -9,7 +9,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'arcticicestudio/nord-vim'
 
 Plug 'w0rp/ale'
-Plug 'natebosch/vim-lsc'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
 Plug 'janko/vim-test'
 
 Plug 'jreybert/vimagit'
@@ -67,18 +68,42 @@ let g:ale_sign_column_always=1
 let g:ale_rust_cargo_use_clippy=1
 let g:ale_rust_rls_toolchain=''
 
-" lsc
-let g:lsc_server_commands = {
-      \ 'python': 'pyls',
-      \ 'typescript.jsx': 'typescript-language-server --stdio',
-      \ 'typescript': 'typescript-language-server --stdio',
-      \ 'javascript.jsx': 'typescript-language-server --stdio',
-      \ 'javascript': 'typescript-language-server --stdio',
-      \ 'rust': 'rls',
-      \ }
-let g:lsc_auto_map = {'defaults': v:true, 'Completion': 'omnifunc'}
-let g:lsc_enable_autocomplete = v:false
-let g:lsc_enable_diagnostics = v:false
+" lsp
+if executable('rls')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+        \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
+if executable('pyls')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
+if executable('typescript-language-server')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'typescript-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+        \ 'whitelist': ['typescript', 'typescript.jsx'],
+        \ 'config': { 'filter': { 'name': 'prefix' } },
+        \ })
+endif
+let g:lsp_diagnostics_enabled=0
+autocmd FileType rust,python,typescript,typescript.jsx setlocal omnifunc=lsp#complete
+autocmd FileType rust,python,typescript,typescript.jsx nmap <buffer> <c-]> <plug>(lsp-definition)
+autocmd FileType rust,python,typescript,typescript.jsx nmap <buffer> <c-w>] <plug>(lsp-type-definition)
+autocmd FileType rust,python,typescript,typescript.jsx nmap <buffer> gr <plug>(lsp-references)
+autocmd FileType rust,python,typescript,typescript.jsx nmap <buffer> <c-n> <plug>(lsp-next-reference)
+autocmd FileType rust,python,typescript,typescript.jsx nmap <buffer> <c-p> <plug>(lsp-previous-reference)
+autocmd FileType rust,python,typescript,typescript.jsx nmap <buffer> gI <plug>(lsp-implementation)
+autocmd FileType rust,python,typescript,typescript.jsx nmap <buffer> ga <plug>(lsp-code-action)
+autocmd FileType rust,python,typescript,typescript.jsx nmap <buffer> gR <plug>(lsp-rename)
+autocmd FileType rust,python,typescript,typescript.jsx nmap <buffer> K <plug>(lsp-hover)
 
 " vim-test
 let test#strategy = "vimterminal"
