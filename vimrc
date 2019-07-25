@@ -229,6 +229,7 @@ nnoremap <c-b> <c-^>
 inoremap <c-b> <esc><c-^>
 
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+cnoremap Qa qa
 
 let mapleader = "\'"
 nnoremap <leader>r :setlocal relativenumber!<cr>
