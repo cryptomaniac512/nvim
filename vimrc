@@ -10,7 +10,8 @@ Plug 'arcticicestudio/nord-vim'
 
 Plug 'w0rp/ale'
 Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
+" Plug 'prabirshrestha/vim-lsp'
+Plug 'thomasfaingnaert/vim-lsp', { 'branch': 'filter-completions' }
 Plug 'janko/vim-test'
 
 Plug 'jreybert/vimagit'
@@ -82,6 +83,7 @@ if executable('pyls')
         \ 'name': 'pyls',
         \ 'cmd': {server_info->['pyls']},
         \ 'whitelist': ['python'],
+        \ 'config': { 'filter': { 'name': 'prefix' } },
         \ })
 endif
 if executable('typescript-language-server')
