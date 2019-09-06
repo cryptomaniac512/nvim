@@ -97,6 +97,7 @@ if executable('typescript-language-server')
 endif
 let g:lsp_diagnostics_enabled=0
 let g:lsp_preview_float=0
+let g:lsp_signature_help_enabled=0
 autocmd FileType rust,python,typescript,typescript.jsx setlocal omnifunc=lsp#complete
 autocmd FileType rust,python,typescript,typescript.jsx nmap <buffer> <c-]> <plug>(lsp-definition)
 autocmd FileType rust,python,typescript,typescript.jsx nmap <buffer> <c-w>] <plug>(lsp-type-definition)
