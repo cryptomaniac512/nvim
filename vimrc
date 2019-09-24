@@ -11,7 +11,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'w0rp/ale'
 Plug 'prabirshrestha/async.vim'
 " Plug 'prabirshrestha/vim-lsp'
-Plug 'thomasfaingnaert/vim-lsp', { 'branch': 'filter-completions' }
+Plug 'thomasfaingnaert/vim-lsp', { 'commit': '374955ff160d9492cbd19b63bde374cf3271ecb5' }
 Plug 'janko/vim-test'
 
 Plug 'jreybert/vimagit'
@@ -32,7 +32,6 @@ Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
-Plug 'RRethy/vim-hexokinase'
 Plug 'mattn/emmet-vim'
 call plug#end()
 
@@ -156,10 +155,6 @@ command! -bang -nargs=? -complete=dir Files
 
 " Vim-jsx setup
 let g:jsx_ext_required=1
-
-" vim-hexokinase
-let g:Hexokinase_highlighters = ['sign_column']
-let g:Hexokinase_ftAutoload = ['*']
 
 " netrw setup
 let g:netrw_localrmdir='rm -r'
