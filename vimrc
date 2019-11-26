@@ -10,8 +10,7 @@ Plug 'arcticicestudio/nord-vim'
 
 Plug 'w0rp/ale'
 Plug 'prabirshrestha/async.vim'
-" Plug 'prabirshrestha/vim-lsp'
-Plug 'thomasfaingnaert/vim-lsp', { 'commit': '374955ff160d9492cbd19b63bde374cf3271ecb5' }
+Plug 'prabirshrestha/vim-lsp'
 Plug 'janko/vim-test'
 
 Plug 'jreybert/vimagit'
