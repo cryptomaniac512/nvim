@@ -12,6 +12,8 @@ Plug 'w0rp/ale'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'janko/vim-test'
+Plug 'tpope/vim-dadbod'
+Plug 'lifepillar/pgsql.vim'
 
 Plug 'jreybert/vimagit'
 Plug 'mbbill/undotree'
@@ -114,6 +116,9 @@ nnoremap <c-k>l :TestLast<cr>
 nnoremap <c-k>n :TestNearest<cr>
 nnoremap <c-k><c-k> :TestNearest<cr>
 nnoremap <c-k>s :TestSuite<cr>
+
+" pgsql
+let g:sql_type_default = 'pgsql'
 
 " Auto-pairs setup
 let g:AutoPairsShortcutBackInsert = ''
