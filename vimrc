@@ -280,3 +280,12 @@ cnoremap W w
 
 autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescript.jsx
 autocmd BufRead,BufNewFile *.pcss setlocal filetype=scss
+
+
+function! SourceIfExists(file)
+  if filereadable(expand(a:file))
+    exe 'source' a:file
+  endif
+endfunction
+
+call SourceIfExists("~/.vim/private.vim")
